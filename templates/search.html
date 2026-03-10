@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Search: {{q}}</h1>
+<h3>Playlists</h3><ul>{% for p in playlists %}<li><a href="/playlist/{{p.id}}">{{p.title}}</a></li>{% endfor %}</ul>
+<h3>Creators</h3><ul>{% for c in creators %}<li><a href="/profile/{{c.username}}">@{{c.username}}</a></li>{% endfor %}</ul>
+<h3>Tags</h3><ul>{% for t in tags %}<li><a href="/discover?tag={{t.name}}">#{{t.name}}</a></li>{% endfor %}</ul>
+{% endblock %}

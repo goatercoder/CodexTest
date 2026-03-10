@@ -1,0 +1,5 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Connect your music provider</h1>
+{% if spotify_connected %}<p>Spotify connected ✅</p><a class="btn" href="/import">Import Playlists</a>{% else %}<a class="btn" href="/auth/spotify">Connect Spotify</a>{% endif %}
+{% endblock %}

@@ -1,0 +1,2 @@
+{% extends 'base.html' %}
+{% block content %}<h1>Your Feed</h1><div class="grid">{% for p in items %}<div class="card"><a href="/playlist/{{p.id}}"><img src="{{p.cover_url}}"><h4>{{p.title}}</h4></a></div>{% else %}<p>Follow creators to populate your feed.</p>{% endfor %}</div>{% endblock %}

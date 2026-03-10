@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Discover {% if tag %}#{{tag}}{% endif %}</h1>
+<p>Trending Tags: {% for t,c in trending_tags %}<a href="/discover?tag={{t}}">#{{t}}({{c}})</a> {% endfor %}</p>
+<div class="grid">{% for p in playlists %}<div class="card"><a href="/playlist/{{p.id}}"><img src="{{p.cover_url}}"><h4>{{p.title}}</h4></a></div>{% endfor %}</div>
+{% endblock %}

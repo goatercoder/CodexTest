@@ -1,0 +1,5 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Notifications</h1>
+<ul>{% for n in items %}<li>[{{n.kind}}] {{n.payload}}</li>{% endfor %}</ul>
+{% endblock %}

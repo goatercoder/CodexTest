@@ -1,0 +1,5 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Import from Spotify</h1>
+<div class="grid">{% for p in playlists %}<div class="card"><img src="{{(p.images[0].url if p.images else 'https://placehold.co/400')}}"><h4>{{p.name}}</h4><p>{{p.description|safe}}</p><form method="post" action="/import/{{p.id}}"><button>Import</button></form></div>{% endfor %}</div>
+{% endblock %}

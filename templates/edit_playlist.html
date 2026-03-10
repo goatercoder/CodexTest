@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Edit Playlist</h1>
+<form method="post">
+<input name="title" value="{{playlist.title}}" required>
+<textarea name="description">{{playlist.description}}</textarea>
+<input name="cover_url" value="{{playlist.cover_url}}">
+<input name="tags" value="{{ tag_names|join(', ') }}" placeholder="gym, study, indie pop">
+<label><input type="checkbox" name="publish" {% if playlist.is_published %}checked{% endif %}> Published</label>
+<button>Save</button>
+</form>
+<h3>Tracks</h3><ul>{% for t in tracks %}<li>{{t.name}} — {{t.artist}}</li>{% endfor %}</ul>
+{% endblock %}

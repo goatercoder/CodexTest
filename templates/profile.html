@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card"><img src="{{user.avatar_url}}" style="width:96px"><h1>@{{user.username}}</h1><p>{{user.bio}}</p>
+<div class="stats"><span>{{stats.followers}} Followers</span><span>{{stats.following}} Following</span><span>{{stats.total_copies}} Total Copies</span><span>+{{stats.weekly_growth}} This Week</span></div>
+{% if current_user.is_authenticated and current_user.id != user.id %}<form method="post" action="/follow/{{user.id}}"><button>Follow</button></form>{% endif %}
+</div>
+<h2>Published Playlists</h2><div class="grid">{% for p in playlists %}<div class="card"><a href="/playlist/{{p.id}}">{{p.title}}</a></div>{% endfor %}</div>
+{% endblock %}

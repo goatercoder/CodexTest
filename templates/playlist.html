@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card"><img src="{{playlist.cover_url}}" style="max-width:320px"><h1>{{playlist.title}}</h1><p>{{playlist.description}}</p><p>By <a href="/profile/{{creator.username}}">@{{creator.username}}</a></p><p>{% for t in tags %}<a href="/discover?tag={{t.name}}">#{{t.name}}</a> {% endfor %}</p>
+<p>{{like_count}} likes · {{copy_count}} copies</p>
+{% if current_user.is_authenticated %}
+<form method="post" action="/playlist/{{playlist.id}}/copy"><button>Copy to My Account</button></form>
+<form method="post" action="/playlist/{{playlist.id}}/like"><button>Like</button></form>
+<form method="post"><textarea name="comment" placeholder="Add comment"></textarea><button>Comment</button></form>
+{% endif %}
+</div>
+<h3>Comments</h3><ul>{% for c,u in comments %}<li><b>{{u}}</b>: {{c.body}}</li>{% endfor %}</ul>
+{% endblock %}

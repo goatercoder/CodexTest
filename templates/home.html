@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Trending Playlists</h1>
+<div class="grid">{% for p,c in trending %}<div class="card"><a href="/playlist/{{p.id}}"><img src="{{p.cover_url}}"><h4>{{p.title}}</h4></a><small>{{c}} copies (7d)</small></div>{% endfor %}</div>
+<h2>Top Creators</h2><div class="grid">{% for u,f in top_creators %}<div class="card"><a href="/profile/{{u.username}}">@{{u.username}}</a><p>{{f}} followers</p></div>{% endfor %}</div>
+<h2>Fastest Growing</h2><div class="grid">{% for p,c in growing %}<div class="card"><a href="/playlist/{{p.id}}">{{p.title}}</a><p>{{c}} copies</p></div>{% endfor %}</div>
+<h2>Recently Uploaded</h2><div class="grid">{% for p in recent %}<div class="card"><a href="/playlist/{{p.id}}">{{p.title}}</a></div>{% endfor %}</div>
+{% endblock %}

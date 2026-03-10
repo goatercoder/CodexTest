@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Direct Messages</h1>
+<form method="post"><input name="recipient" placeholder="recipient username" required><textarea name="body" placeholder="your message"></textarea><button>Send</button></form>
+{% for item in inbox %}
+<div class="card"><h3>@{{item.partner.username}}</h3>{% for m in item.messages %}<p>{{m.body}}</p>{% endfor %}</div>
+{% endfor %}
+{% endblock %}
